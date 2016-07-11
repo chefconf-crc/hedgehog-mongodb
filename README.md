@@ -1,2 +1,4 @@
 # hedgehog-mongodb
-spikey
+
+TODO: Enter the cookbook description here.
+
