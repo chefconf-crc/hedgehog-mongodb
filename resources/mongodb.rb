@@ -1,13 +1,18 @@
 resource_name :mongodb
 
-#property :gpgcheck, Boolean, default: true
-#property :gpgkey, String, default: 'https://www.mongodb.org/static/pgp/server-3.2.asc'
-#property :description, String, default: 'MonoDB Repository'
-#property :baseurl, String, default: 'https://repo.mogodb.org/yum/redhat/$releasever/mogodb-org/3.2/x86_64/'
-
 action :create do
+  yum_repository 'mongodb-org-3.2' do
+    baseurl 'https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/'
+    description 'MongoDB Repository'
+    gpgcheck true
+    gpgkey 'https://www.mongodb.org/static/pgp/server-3.2.asc'
+    enabled true
+    action :create
+  end
+
   package 'mongodb-org'
+
   service 'mongod' do
-    action [ :enable, :start ]
+    action [:enable, :start]
   end
 end
