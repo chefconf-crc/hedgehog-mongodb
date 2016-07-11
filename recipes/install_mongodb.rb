@@ -13,8 +13,12 @@ yum_repository 'mongodb-org-3.2' do
   action :create
 end
 
-package 'mongodb-org'
+# package 'mongodb-org'
+#
+# service 'mongod' do
+#   action [ :enable, :start ]
+# end
 
-service 'mongod' do
-  action [ :enable, :start ]
+mongodb 'Add custom mongodb resource' do
+ action :create
 end
