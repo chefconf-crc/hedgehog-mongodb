@@ -1,4 +1,4 @@
-resource_name: mongodb
+resource_name :mongodb
 
 #property :gpgcheck, Boolean, default: true
 #property :gpgkey, String, default: 'https://www.mongodb.org/static/pgp/server-3.2.asc'
@@ -11,4 +11,3 @@ action :create do
     action [ :enable, :start ]
   end
 end
-
